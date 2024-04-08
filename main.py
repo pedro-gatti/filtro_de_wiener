@@ -56,5 +56,11 @@ def main():
     nova_matriz_resultado = np.dot(matriz_A_transposta, matriz_B)
     imprimir_matriz(nova_matriz_resultado)
 
+    resultado = np.linalg.solve(nova_matriz_sistema, nova_matriz_resultado)
+    imprimir_matriz(resultado)
+
+    aprox = np.dot(matriz_A, resultado)
+    imprimir_matriz(aprox)
+
 if __name__ == '__main__':
     main()
