@@ -60,9 +60,8 @@ def encontrar_erro(vetor_resultado, vetor_aproximado):
         vetor_de_erros.append(erro)
 
     erro_medio = sum(vetor_de_erros)/len(vetor_de_erros)
-    print(vetor_de_erros)
 
-    return erro_medio
+    return erro_medio, vetor_de_erros
 
 def main():
 
@@ -121,7 +120,8 @@ def main():
     print('\n\t\tConferencia da Solução:\n')
     imprimir_matriz(valores_aproximados)
     
-    erro_medio = encontrar_erro(matriz_B, valores_aproximados)
+    erro_medio, vetor_de_erros = encontrar_erro(matriz_B, valores_aproximados)
+    print(f'\n\t\tVetor de Erros:\n{vetor_de_erros}')
     print(f'\n\t\tErro Medio:\n{erro_medio}')
     
     ########################################################
