@@ -42,20 +42,25 @@ def achar_transposta(matriz_original):
         for j in range (len(matriz_original[0])):
             matriz_transposta[j].append(matriz_original[i][j])
     
-    return matriz_transposta
+    return matriz_transposta   
         
 def encontrar_erro(vetor_resultado, vetor_aproximado):
     
+    
+    print(f'{vetor_aproximado}\n')
+    
     #inicializando o vetor de erros
     vetor_de_erros = []
-
+    vetor_aproximado = vetor_aproximado.tolist()
+    
     #calcula o erro medio entre o vetor de resultado e o vetor aptroximado
     for i in range(len(vetor_resultado)):
         erro = vetor_resultado[i] - vetor_aproximado[i]
         abs(erro)
-        vetor_de_erros[i] = erro
+        vetor_de_erros.append(erro)
 
     erro_medio = sum(vetor_de_erros)/len(vetor_de_erros)
+    print(vetor_de_erros)
 
     return erro_medio
 
@@ -112,11 +117,11 @@ def main():
     ########################################################
     # confere se o resultado bate com o exemplo e calcula o erro medio
 
-    confere = np.dot(matriz_A, solucao_aproximada)
+    valores_aproximados = np.dot(matriz_A, solucao_aproximada)
     print('\n\t\tConferencia da Solução:\n')
-    imprimir_matriz(confere)
-
-    erro_medio = encontrar_erro(matriz_B, confere)
+    imprimir_matriz(valores_aproximados)
+    
+    erro_medio = encontrar_erro(matriz_B, valores_aproximados)
     print(f'\n\t\tErro Medio:\n{erro_medio}')
     
     ########################################################
